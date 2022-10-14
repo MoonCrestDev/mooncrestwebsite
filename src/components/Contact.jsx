@@ -27,7 +27,7 @@ export const Contact = () => {
                 <Container>
                     <Typography variant='h2' color="common.white" sx={{textAlign: "center"}}>Contact</Typography>
                     <Stack alignItems={"center"}>
-                        <Card sx={{padding: 5, backgroundColor: 'transparent', shadowOpacity: 0, width: "90%", mt: 5, ":hover": {boxShadow: 20}}}>
+                        <Card sx={{padding: 5, backgroundColor: 'transparent', shadowOpacity: 0, width: 1, mt: 5, ":hover": {boxShadow: 20}}}>
                             <EmailOutlinedIcon sx={{color: "common.white"}}/>
                             <Typography variant='h5' color="common.white">Email: raph@mooncrestdev.com</Typography>
                             <Typography color="common.white" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Send a message</Typography>

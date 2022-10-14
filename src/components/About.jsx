@@ -42,7 +42,7 @@ export const About = () => {
                 <Container>
                     <Stack direction="column" alignItems={"center"} sx={{mt: 15, mb: 15}}>
                         <Typography variant='h2' color="common.white" sx={{textAlign: "center"}}>About</Typography>
-                        <Stack direction="row" alignItems={"center"}>
+                        <Stack direction={"row"} alignItems={"center"}>
                             <Avatar sx={{animation: `${bounceEffect} 2s infinite ease`}} src={Logo} alt="logo" style={{width: "15%", height: "15%"}}/>
                             <Card sx={{padding: 5, backgroundColor: 'transparent', shadowOpacity: 0, width: "90%", mt: 5, ":hover": {boxShadow: 20}}}>
                                 <Stack alignItems={"center"} direction="column">

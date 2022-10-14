@@ -1,4 +1,4 @@
-import { Card, createTheme, Stack, ThemeProvider, Typography } from '@mui/material';
+import { Card, createTheme, Stack, Grid, ThemeProvider, Typography } from '@mui/material';
 import { Container, keyframes } from '@mui/system';
 import React from 'react'
 import IQueryIcon from "../assets/iquery_icon.png"
@@ -47,12 +47,14 @@ export const Projects = () => {
                     <Typography variant='h2' color="common.white" sx={{textAlign: "center"}}>Projects</Typography>
 
                     <Container id="iquery">
-                        <Stack direction={{xs:"column", sm: "row"}} alignItems={"center"}>
-                            <Stack direction={"row"} alignItems={"center"}>
-                                <Card sx={{display: "flex", width:125, mr: 2, boxShadow:20, animation: `${bounceEffect} 2s infinite ease`}}>
+                        <Grid container spacing={3} alignItems='center' justifyContent='center'>
+                            <Grid item xs={4} md={2}>
+                                <Card display={"flex"} sx={{display: {width: "60%", height: "60%"}, mr: 2, boxShadow:20, animation: `${bounceEffect} 2s infinite ease`}}>
                                     <img style={{width: "100%", height: "100%"}} src={IQueryIcon} alt="pdpicon" />
                                 </Card>
+                            </Grid>
 
+                            <Grid item xs={8} md={6}>
                                 <Card sx={{padding: 2, backgroundColor: 'transparent', shadowOpacity: 0, ":hover": {boxShadow: 20}}}>
                                     <Typography mb={2} variant='h4' color="common.white">IQuery</Typography>
                                     <Stack alignItems={"center"} direction="row">
@@ -60,24 +62,26 @@ export const Projects = () => {
                                             IQuery is a tool that helps you find connections between any two questions that YOU choose. It provides the percentage of the relation, and presents statistics with graphs.
                                         </Typography>
                                     </Stack>
-                                    <Stack alignItems={"end"}>
-                                        <a style={{display: "flex", width: 200, alignItems: "end"}} href='https://play.google.com/store/apps/details?id=com.mooncrest.iquery&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
+                                    <Stack alignItems={{xs: "center", md: "end"}}>
+                                        <a style={{display: "flex", width: 200}} href='https://play.google.com/store/apps/details?id=com.mooncrest.iquery&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'>
                                             <img  alt='Get it on Google Play' style={{display: "flex", width: 200}} src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/>
                                         </a>
                                     </Stack>
                                 </Card>
-                            </Stack>
+                            </Grid>
 
-                            <Container>
-                                <Carousel sx={{width: "60%", m:2}} >
+                            <Grid item xs={6} md={4}>
+                                <Carousel sx={{width: "80%", m:2}} >
                                     {
                                         slideImages.map((image) =>{
                                             return <Card display="flex"><img src={image} alt="slide" style={{width: "100%", height: "100%"}}/></Card>
                                         } )
                                     }
                                 </Carousel>
-                            </Container>
-                        </Stack>
+                            </Grid>
+
+                        </Grid>
+
                     </Container>
                 </Stack>
             </Container>
