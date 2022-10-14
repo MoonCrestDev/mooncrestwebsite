@@ -56,7 +56,7 @@ export const Projects = () => {
 
                             <Grid item xs={8} md={6}>
                                 <Card sx={{padding: 2, backgroundColor: 'transparent', shadowOpacity: 0, ":hover": {boxShadow: 20}}}>
-                                    <Typography mb={2} variant='h4' color="common.white">IQuery</Typography>
+                                    <Typography mb={2} variant='h4' color="common.white">IQuery (To Be Released) </Typography>
                                     <Stack alignItems={"center"} direction="row">
                                         <Typography variant="p" color="common.white">
                                             IQuery is a tool that helps you find connections between any two questions that YOU choose. It provides the percentage of the relation, and presents statistics with graphs.
