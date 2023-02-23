@@ -14,7 +14,7 @@ const Home = () =>{
             <Box
                 id="Home"
                 mt={10}
-                mb={{xs: 15, md: 0}}
+                mb={{xs: 25, md: 0}}
                 display="flex"
                 justifyContent="center"
                 minHeight={{md: "100vh"}}

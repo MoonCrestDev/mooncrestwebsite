@@ -22,14 +22,14 @@ function AboutComponent(props){
     return(
     <Fade left>
         <Grid container spacing={2}>
-            <Grid item xs={5} md={3}
+            <Grid item xs={4} md={3}
             style={{
                         backgroundImage: `url(${props.mainIcon})`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         width: "100%",
                     }}/>
-            <Grid item xs={7} md={9}>
+            <Grid item xs={8} md={9}>
                 <Stack direction={"column"} display="flex" spacing={2}>
                     <Typography variant="h5" sx={{fontWeight: 'bold'}}>{props.name}</Typography>
                     <Typography>{props.text}</Typography>

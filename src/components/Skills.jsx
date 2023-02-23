@@ -14,10 +14,10 @@ import Fade from 'react-reveal/Fade';
 function Skill(props){
     const theme = useTheme();
     return(
-        <Stack justifyContent="center" alignItems="center">
+        <Stack alignItems="center" alignSelf={"center"}>
             <Avatar src={props.image} />
-            <Box m={2} style={{backgroundColor: theme.palette.surface.main}} sx={{ borderRadius: '16px' }}>
-                <Stack direction={"column"} style={{ display:'flex', justifyContent:'center' }} mb={1} mt={1} ml={15} mr={15}>
+            <Box alignItems="center" alignSelf={"center"} m={2} style={{backgroundColor: theme.palette.surface.main}} sx={{ borderRadius: '16px' }} width={{xs: 325, md:350}} height={75}>
+                <Stack direction={"column"} alignItems="center" alignSelf={"center"}>
                     <Typography variant="h6" sx={{fontWeight: 'bold'}}  align="center">{props.name}</Typography>
                     <Rating color={theme.palette.primary.main} name="read-only" value={props.value} readOnly sx={{justifyContent: "center"}} />
                 </Stack>
@@ -30,15 +30,16 @@ function SkillWithUdemy(props){
     const theme = useTheme();
     return(
         <Stack justifyContent="center" alignItems="center">
-            <Avatar src={props.image} />
-            <Box m={2} style={{backgroundColor: theme.palette.surface.main}} sx={{ borderRadius: '16px' }}>
-                <Stack direction={"row"}  mb={1} mt={1} ml={15} mr={10} style={{ display:'flex', justifyContent:'center' }}>
-                    <Stack direction={"column"} style={{ display:'flex', justifyContent:'center' }}>
+            <Stack direction={"row"} >
+
+                <Avatar src={props.image} />
+                <UdemyCourse tooltip={props.tooltip} link={props.link}/>
+            </Stack>
+            <Box m={2} alignItems="center" alignSelf={"center"} style={{backgroundColor: theme.palette.surface.main}} sx={{ borderRadius: '16px' }} width={{xs: 325, md:350}} height={75}>
+                    <Stack direction={"column"} alignItems="center" alignSelf={"center"}>
                         <Typography variant="h6" sx={{fontWeight: 'bold'}}  align="center">{props.name}</Typography>
                         <Rating color={theme.palette.primary.main} name="read-only" value={props.value} readOnly sx={{justifyContent: "center"}} />
                     </Stack>
-                    <UdemyCourse tooltip={props.tooltip} link={props.link}/>
-                </Stack>
             </Box>
         </Stack>
     );
@@ -65,7 +66,7 @@ const Skills = () =>{
                     My Skills
                 </Typography>
             </Fade>
-            <Grid container mt={10}>
+            <Grid container mt={10} spacing={2}>
                 <Grid item xs={12} md={9}>
                     <Fade left>
                         <SkillWithUdemy
