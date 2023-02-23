@@ -1,40 +1,29 @@
-import { Card, Stack, createTheme, ThemeProvider, Typography } from '@mui/material';
-import { Container } from '@mui/system';
-import React from 'react'
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import { useTheme } from '@emotion/react';
+import { Typography } from '@mui/material';
+import { Box, Stack } from '@mui/system';
+import * as React from 'react';
+import Fade from 'react-reveal/Fade';
+import { SocialIcon } from 'react-social-icons';
 
-const myTheme = createTheme({
-    typography: {
-        fontFamily: [
-          'Raleway',
-          'serif',
-        ].join(','),
-    },
-    palette: {
-        primary: {
-            main: "#D6D6D6"
-        },
-        secondary: {
-            main: "#454545"
-        }
-    }
-});
-
-export const Contact = () => {
+const Contact = () =>{
+    const theme = useTheme();
     return(
-        <ThemeProvider theme={myTheme}>
-            <section id="Contact">
-                <Container>
-                    <Typography variant='h2' color="common.white" sx={{textAlign: "center"}}>Contact</Typography>
-                    <Stack alignItems={"center"}>
-                        <Card sx={{padding: 5, backgroundColor: 'transparent', shadowOpacity: 0, width: 1, mt: 5, ":hover": {boxShadow: 20}}}>
-                            <EmailOutlinedIcon sx={{color: "common.white"}}/>
-                            <Typography variant='h5' color="common.white">Email: raph@mooncrestdev.com</Typography>
-                            <Typography color="common.white" onClick={() => window.location = 'mailto:yourmail@domain.com'}>Send a message</Typography>
-                        </Card>
-                    </Stack>
-                </Container>
-            </section>
-        </ThemeProvider>
+        <Stack spacing={3} width={"100%"} justifySelf={"center"} display="flex" style={{backgroundColor: theme.palette.surface.main}} mt={30}>
+            <Fade left>
+                <Typography id="Contact" color={theme.palette.primary.onPrimary} variant="h5" sx={{fontWeight: 'bold'}} align="center">
+                    Let's Talk!
+                </Typography>
+                <Typography variant='h6' align="center">
+                    You can use one of the next platforms to contact me:
+                </Typography>
+            </Fade>
+            <Stack direction={{xs: "row"}} spacing={2} alignSelf="center" alignItems="center">
+                    <SocialIcon style={{ height: 50, width: 50 }} url='https://www.linkedin.com/in/kfir-raphael-eliyahu-b65608247/'/>
+                    <SocialIcon style={{ height: 50, width: 50 }} url='https://www.instagram.com/kfir.eliyahu8/?next=%2F'/>
+                    <SocialIcon style={{ height: 50, width: 50 }} url='mailto:raph@mooncrestdev.com'/>
+            </Stack>
+        </Stack>
     );
-}
+};
+
+export default Contact;

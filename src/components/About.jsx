@@ -1,97 +1,103 @@
-import { Avatar, Card, createTheme, Grid, Stack, ThemeProvider, Typography } from '@mui/material';
-import { Container, keyframes } from '@mui/system';
-import React from 'react'
-import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
-import KotlinIcon from '../assets/kotlin_icon.png'
-import PythonIcon from '../assets/python_icon.png'
-import CsharpIcon from '../assets/csharp_icon.png'
-import JavascriptIcon from '../assets/javascript_icon.png'
+import { useTheme } from "@emotion/react";
+import { Avatar, Grid, Stack, Typography } from "@mui/material";
+import { Box } from "@mui/system";
+import * as React from 'react';
+import AppDesign from '../assets/app_design.png'
+import Scripts from '../assets/scripts.png'
+import UiUx from '../assets/uiux.png'
+import WebDesign from '../assets/web_design.png'
+import Kotlin from '../assets/kotlin_icon.png'
 import ReactIcon from '../assets/react_icon.png'
-import JavaIcon from '../assets/java_icon.png'
-import Logo from '../assets/logo.png'
-import LanguageCard from "./LanguageCard"
-import { SocialIcon } from 'react-social-icons';
+import JavaScript from '../assets/javascript_icon.png'
+import Python from '../assets/python_icon.png'
+import Figma from '../assets/figma.png'
+import Firebase from '../assets/firebase.png'
+import Github from '../assets/github.png'
+import Database from '../assets/database.png'
+import Compose from '../assets/compose_icon.png'
+import AndroidStudio from '../assets/android_studio.png'
+import Fade from 'react-reveal/Fade';
 
-const myTheme = createTheme({
-    typography: {
-        fontFamily: [
-          'Raleway',
-          'serif',
-        ].join(','),
-    },
-    palette: {
-        primary: {
-            main: "#D6D6D6"
-        },
-        secondary: {
-            main: "#454545"
-        }
-    },
-});
-
-const bounceEffect = keyframes`
-    0%   {margin-top: 0px;}
-    50%  {margin-top: 30px;}
-    100% {margin-top: 0px;}
-`;
-export const About = () => {
-
+function AboutComponent(props){
     return(
-        <ThemeProvider theme={myTheme}>
-            <section  id="About">
-                <Container>
-                    <Stack direction="column" alignItems={"center"} sx={{mt: 15, mb: 15}}>
-                        <Typography variant='h2' color="common.white" sx={{textAlign: "center"}}>About</Typography>
-                        <Stack direction={"row"} alignItems={"center"}>
-                            <Avatar sx={{animation: `${bounceEffect} 2s infinite ease`}} src={Logo} alt="logo" style={{width: "15%", height: "15%"}}/>
-                            <Card sx={{padding: 5, backgroundColor: 'transparent', shadowOpacity: 0, width: "90%", mt: 5, ":hover": {boxShadow: 20}}}>
-                                <Stack alignItems={"center"} direction="column">
-                                    <Stack alignItems={"center"} direction={"column"} spacing={1} sx={{}}>
-                                        <Typography color="common.white" variant='p' sx={{textAlign: "center"}}>I am a developer, specializing in App Development. I have been developing apps using Kotlin (Java). </Typography>
-                                        <Typography color="common.white" variant='p' sx={{textAlign: "center"}}> I’m familiar with a variety of programming languages, and I’m constantly learning new skills.</Typography>
-                                        <Typography color="common.white" variant='p' sx={{textAlign: "center"}}> Moon Crest is my personal project, and also the name of the company my apps are being published by.</Typography>
-                                    </Stack>
-                                    <Stack direction={"row"} spacing={3} mt={2}>
-                                        <SocialIcon url="https://www.linkedin.com/in/kfir-raphael-eliyahu-b65608247/" />
-                                        <SocialIcon network='google_play' url="https://play.google.com/store/apps/dev?id=6507264270844582290" />
-                                    </Stack>
-                                </Stack>
-                            </Card>
-                        </Stack>
+    <Fade left>
+        <Grid container spacing={2}>
+            <Grid item xs={5} md={3}
+            style={{
+                        backgroundImage: `url(${props.mainIcon})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        width: "100%",
+                    }}/>
+            <Grid item xs={7} md={9}>
+                <Stack direction={"column"} display="flex" spacing={2}>
+                    <Typography variant="h5" sx={{fontWeight: 'bold'}}>{props.name}</Typography>
+                    <Typography>{props.text}</Typography>
+                    <Stack direction={"row"}>
+                        {props.icons.map((icon) =>(
+                            <Avatar src={icon}/>
+                        ))}
                     </Stack>
+                </Stack>
+            </Grid>
+        </Grid>
+    </Fade>
 
-                    <Container>
-                    <Stack direction="column" alignItems={"center"}>
-                        <Card sx={{padding: 3, backgroundColor: 'transparent', shadowOpacity: 0, width: 1, mt: 5, ":hover": {boxShadow: 20}}}>
-                            <Stack direction="row" alignItems={"center"}>
-                                <AutoAwesomeIcon color="common.white" sx={{ mr: 2}}/>
-                                <Typography variant='h4' color={"common.white"}>My Skills</Typography>
-                            </Stack>                        
-                            <Grid container spacing={3}>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="Kotlin" image={KotlinIcon} experience="Expert" value="5"/>
-                                    </Grid>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="Python" image={PythonIcon} experience="Advanced" value="4"/>
-                                    </Grid>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="React.js" image={ReactIcon} experience="Advanced" value="4"/>
-                                    </Grid>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="Csharp" image={CsharpIcon} experience="Intermediate" value="3"/>
-                                    </Grid>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="JavaScript" image={JavascriptIcon} experience="Intermediate" value="3"/>
-                                    </Grid>
-                                    <Grid item xs={6} md={4}>
-                                        <LanguageCard language="Java" image={JavaIcon} experience="Intermediate" value="3"/>
-                                    </Grid>
-                                </Grid>
-                            </Card>
-                        </Stack>
-                    </Container>
-                </Container>
-            </section>
-        </ThemeProvider>
     );
 }
+
+const About = () =>{
+    const theme = useTheme();
+    return(
+        <Stack direction="column" display="flex" id="About">
+            <Fade top>
+                <Typography color={theme.palette.primary.onPrimary} variant="h2" sx={{fontWeight: 'bold'}} align="center">
+                    About
+                </Typography>
+            </Fade>
+            <Box m={8}>
+                <Typography variant="h5"  sx={{fontWeight: 'bold'}} mb={2}>
+                    I am a developer, specializing in UI\UX and app development.</Typography>
+                <Typography>
+                I mainly use Figma for UI\UX, and Kotlin for app development,
+                 but I have a wide variety of knowledge in multiple programming languages.</Typography>
+                <Typography>I’m 19 years old, and currently serving my military service at Lahav 433, as a Cyber Analyst.
+                </Typography>
+                <Typography>Also, I’m currently studying Computer Science (B.Sc.) at the Open University of Israel.</Typography>
+                
+                <Grid container spacing={8} mt={5}>
+                    <Grid item xs={12} md={6}> 
+                        <AboutComponent
+                            mainIcon={AppDesign}
+                            name="App Design"
+                            text="I build android apps in Android Studio, using Kotlin Jetpack Compose and Firebase."
+                            icons={[Kotlin, Firebase, Compose, AndroidStudio]}/>
+                    </Grid>
+                    <Grid item xs={12} md={6}> 
+                        <AboutComponent
+                            mainIcon={WebDesign}
+                            name="Web Design"
+                            text="I build web solutions using React.js, and Django in Python."
+                            icons={[ReactIcon, JavaScript, Figma, Python]}/>
+                    </Grid>
+                    <Grid item xs={12} md={6}> 
+                        <AboutComponent
+                            mainIcon={UiUx}
+                            name="UI/UX"
+                            text="I design UI\UX using Figma. After prototyping my design, I use it to develop apps and web-solutions."
+                            icons={[Figma]}/>
+                    </Grid>
+                    <Grid item xs={12} md={6}> 
+                        <AboutComponent
+                            mainIcon={Scripts}
+                            name="Scripts"
+                            text="I develop scripts using python. In addition, I manage my code using Github. I have knowledge of many libraries such as Sqlite, Tkinter and more."
+                            icons={[Python, Github, Database]}/>
+                    </Grid>
+                </Grid>
+            </Box>
+        </Stack>
+    );
+};
+
+export default About;
