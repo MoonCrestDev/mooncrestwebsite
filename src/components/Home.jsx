@@ -14,7 +14,7 @@ const Home = () =>{
             <Box
                 id="Home"
                 mt={10}
-                mb={{xs: 35, md: 0}}
+                mb={{xs: 15, md: 0}}
                 display="flex"
                 justifyContent="center"
                 minHeight={{md: "100vh"}}
@@ -32,7 +32,7 @@ const Home = () =>{
                         Mobile App Developer
                         </Typography>
                         <Typography color={theme.palette.primary.onPrimary} variant='h2' align='center' sx={{fontWeight: 'bold'}}>
-                        & UX\UI Designer
+                        & UI/UX Designer
                         </Typography>
                                             
                         <Stack direction={{xs: "row"}} spacing={2} alignSelf="center" nalignItems="center">
