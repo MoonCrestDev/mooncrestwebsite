@@ -15,7 +15,6 @@ function App() {
         <Nav/>
         <Home/>
         <About/>
-        <Skills/>
         <Projects/>
         <Contact/>
       </ThemeProvider>

@@ -61,7 +61,7 @@ const About = () =>{
                 <Typography>
                 I mainly use Figma for UI\UX, and Kotlin for app development,
                  but I have a wide variety of knowledge in multiple programming languages.</Typography>
-                <Typography>I’m 19 years old, and currently serving my military service at Lahav 433, as a Cyber Analyst.
+                <Typography>I’m 20 years old, and currently serving my military service at Lahav 433, as a Cyber Analyst.
                 </Typography>
                 <Typography>Also, I’m currently studying Computer Science (B.Sc.) at the Open University of Israel.</Typography>
                 
